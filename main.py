@@ -1,33 +1,46 @@
+def lista(arr):
+    print("Productos disponibles:")
+    for i in range(len(arr)):
+        print(f"{i + 1}. " + arr[i])
+
 productos = []
 while True:
-    print("--------Lista de opciones--------\n1. Agregar un producto\n2. Modificar un producto\n3. Eliminar un producto\n4. Ver todos los productos\n5. Salir")
+    print("\n--------Lista de opciones--------\n1. Agregar un producto\n2. Modificar un producto\n3. Eliminar un producto\n4. Ver todos los productos\n5. Salir")
     opcion = input("Selecciona una opcion: ")
     match opcion:
         case 1:
-            productos.append(input("Ingrese un producto para añadirlo: "))
+            while True:
+                new = input("\nIngrese un nuevo producto: ")
+                if new in productos:
+                    print("El producto ya existe")
+                else:
+                    productos.append(new)
+                    break
 
         case 2:
-            print("Productos disponibles:")
-            for i in range(len(productos)):
-                print(f"{i+1}. " + productos[i])
-            index = int(input("Ingrese el índice del producto a modificar:"))-1
+            lista(productos)
+            while True:
+                try:
+                    prod_index = int(input("Ingrese el índice del producto a modificar:"))-1
+                    if prod_index <=0:
+                        print("Ingrese un número positivo")
+                    else:
+                        break
+                except:
+                    print("Ingrese un índice de la lista")
             new_producto = input("Ingrese el nuevo producto: ")
-            productos[index] = new_producto
+            productos[prod_index] = new_producto
 
         case 3:
-            print("Productos disponibles:")
-            for i in range(len(productos)):
-                print(f"{i + 1}. " + productos[i])
-            producto = int(input("Ingrese el nuevo producto: "))
+            lista(productos)
+            producto = input("Ingrese el producto a eliminar: ")
             if producto in productos:
                 productos.remove(producto)
             else:
                 print("El producto no existe")
 
         case 4:
-            print("Productos disponibles:")
-            for i in range(len(productos)):
-                print(f"{i + 1}. " + productos[i])
+            lista(productos)
 
         case 5:
             print("Saliendo...")
