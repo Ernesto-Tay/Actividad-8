@@ -1,14 +1,18 @@
 def lista(arr):
-    print("Productos disponibles:")
-    for i in range(len(arr)):
-        print(f"{i + 1}. " + arr[i])
+    if len(arr) == 0:
+        print("No hay elementos")
+    else:
+        print("Productos disponibles:")
+        for i in range(len(arr)):
+            print(f"{i + 1}. " + arr[i])
+
 
 productos = []
 while True:
     print("\n--------Lista de opciones--------\n1. Agregar un producto\n2. Modificar un producto\n3. Eliminar un producto\n4. Ver todos los productos\n5. Salir")
     opcion = input("Selecciona una opcion: ")
     match opcion:
-        case 1:
+        case "1":
             while True:
                 new = input("\nIngrese un nuevo producto: ")
                 if new in productos:
@@ -17,7 +21,7 @@ while True:
                     productos.append(new)
                     break
 
-        case 2:
+        case "2":
             lista(productos)
             while True:
                 try:
@@ -31,7 +35,7 @@ while True:
             new_producto = input("Ingrese el nuevo producto: ")
             productos[prod_index] = new_producto
 
-        case 3:
+        case "3":
             lista(productos)
             producto = input("Ingrese el producto a eliminar: ")
             if producto in productos:
@@ -39,10 +43,10 @@ while True:
             else:
                 print("El producto no existe")
 
-        case 4:
+        case "4":
             lista(productos)
 
-        case 5:
+        case "5":
             print("Saliendo...")
             break
 
