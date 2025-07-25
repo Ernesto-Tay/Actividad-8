@@ -6,7 +6,6 @@ def lista(arr):
         for i in range(len(arr)):
             print(f"{i + 1}. " + arr[i])
 
-
 productos = []
 while True:
     print("\n--------Lista de opciones--------\n1. Agregar un producto\n2. Modificar un producto\n3. Eliminar un producto\n4. Ver todos los productos\n5. Salir")
